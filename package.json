@@ -1,0 +1,20 @@
+{
+  "name": "lossimpsonsquoterbot",
+  "version": "1.0.0",
+  "description": "",
+  "main": "bot.js",
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "node-telegram-bot-api": "^0.40.0",
+    "nodemon": "^2.0.2",
+    "request": "^2.88.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node bot.js",
+    "dev": "nodemon --watch bot.js"
+  },
+  "author": "osgioia",
+  "license": "ISC"
+}

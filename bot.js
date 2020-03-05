@@ -3,6 +3,7 @@ const express = require('express')
 const bodyParser = require('body-parser')
 const request = require('request');
 const dotenv = require('dotenv');
+var packageInfo = require('./package.json');
 
 
 dotenv.config();
@@ -16,6 +17,7 @@ if (process.env.NODE_ENV === 'production') {
     bot = new TelegramBot(token, { polling: true });
  }
 
+ console.log('Bot server started in the ' + process.env.NODE_ENV + ' mode');
 
 bot.onText(/\/start/, (msg) => {
     const chatId = msg.chat.id;
@@ -78,4 +80,5 @@ app.listen(process.env.PORT)
 app.post('/' + bot.token, (req,res) => {
     bot.processUpdate(req.body)
     res.sendStatus(200)
+    res.json({ version: packageInfo.version });
 } )
